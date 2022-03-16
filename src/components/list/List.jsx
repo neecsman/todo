@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import './List.scss';
 
 const List = ({ items, isRemovable }) => {
@@ -5,7 +7,7 @@ const List = ({ items, isRemovable }) => {
         <ul className="todo__list">
             {
                 items.map((item, index) => 
-                    <li key={index} className={item.active ? "active" : ''}>
+                    <li key={index} className={classNames(item.className, {'active': item.active})}>
                         {item.icon ? item.icon : <i className={`badge badge--${item.color}`}></i>}
                         <span>{item.name}</span>
                     </li>

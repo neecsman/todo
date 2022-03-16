@@ -17,9 +17,19 @@
     span {
         margin-left: 15px;
     }
-    ion-icon {
-        color: #7C7C7C;
-        font-size: 32px;
+   
+
+    &__add-button {
+        color: #767676;
+        
+        ion-icon {
+            font-size: 32px;
+        }
+
+        &:hover {
+            color: #000000;
+        }
+
     }
 
     .badge {

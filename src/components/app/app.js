@@ -1,5 +1,7 @@
 import './app.scss';
 import List from '../list/List';
+import AddListButton from '../add-list-button/AddListButton'
+
 
 
 function App() {
@@ -36,12 +38,7 @@ function App() {
           ]}
           isRemovable
           />
-          <List items={[
-            {
-              icon: <ion-icon name="add-circle-outline"></ion-icon>,
-              name: "Добавить список"
-            }
-          ]}/>
+        <AddListButton />
         </div>
         <div className="todo__tusks">
 
