@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    list-style: none;
+    box-sizing:border-box;
+    font-family: Roboto, -apple-system, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
+
+
+.field {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #EFEFEF;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 15px 20px;
+    font-size: 18px;
+    
+
+    &:focus {
+        outline: none;
+        border-color: #dbdada;
+    }
+}

@@ -1,10 +1,11 @@
 import classNames from 'classnames';
 
+
 import './List.scss';
 
-const List = ({ items, isRemovable }) => {
+const List = ({ items, isRemovable, onClick }) => {
     return (
-        <ul className="todo__list">
+        <ul onClick={onClick} className="todo__list">
             {
                 items.map((item, index) => 
                     <li key={index} className={classNames(item.className, {'active': item.active})}>
