@@ -1,4 +1,7 @@
 import classNames from 'classnames';
+import Badge from '../badge/Badge';
+
+
 
 
 import './List.scss';
@@ -9,7 +12,7 @@ const List = ({ items, isRemovable, onClick }) => {
             {
                 items.map((item, index) => 
                     <li key={index} className={classNames(item.className, {'active': item.active})}>
-                        {item.icon ? item.icon : <i className={`badge badge--${item.color}`}></i>}
+                        {item.icon ? item.icon : <Badge color={item.color}/>}
                         <span>{item.name}</span>
                     </li>
                 )
@@ -19,3 +22,4 @@ const List = ({ items, isRemovable, onClick }) => {
 }
 
 export default List;
+

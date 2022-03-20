@@ -7,6 +7,25 @@
     font-family: Roboto, -apple-system, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
 
+ion-icon {
+    font-size: 32px;
+}
+
+.button {
+    background: #4DD599;
+    border-radius: 4px;
+    color: #FFFFFF;
+    border: 0;
+    padding: 20px 30px;
+    cursor: pointer;
+    &:hover {
+        background-color: darken(#4DD599, 7%);
+    }
+
+    &:active {
+        background-color: darken(#4DD599, 12%);
+    }
+}
 
 .field {
     width: 100%;

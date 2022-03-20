@@ -1,10 +1,27 @@
-import './app.scss';
+import { useState } from 'react';
 import List from '../list/List';
 import AddListButton from '../add-list-button/AddListButton'
 
+import DB from '../../assets/db.json'
+
+import './app.scss';
 
 
 function App() {
+  const [lists, setLists] = useState(
+    DB.lists.map(item => {
+      item.color = DB.colors.filter(color => color.id === item.colorId)[0].name;
+
+      return item;
+    })
+  );
+  
+  const onAddList = (obj) => {
+    console.log(obj);
+    
+  }
+
+
   return (
     <div className="todo">
         <div className="todo__sidebar">
@@ -14,31 +31,13 @@ function App() {
               name: "Все задачи"
             },
           ]}/>
-           <List items={[
-            {
-              color: "green",
-              name: "Покупки",
-              active: false
-            },
-            {
-              color: "blue",
-              name: "Фронтенд",
-              active: true
-            },
-            {
-              color: "pink",
-              name: "Фильмы и сериалы",
-              active: false
-            },
-            {
-              color: "green",
-              name: "Книги",
-              active: false
-            },
-          ]}
-          isRemovable
+           <List 
+            items={lists}
+            isRemovable
           />
-        <AddListButton />
+        <AddListButton 
+          onAdd={onAddList}
+          colors={DB.colors}/>
         </div>
         <div className="todo__tusks">
 
