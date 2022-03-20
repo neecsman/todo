@@ -12,19 +12,32 @@ const AddListButton = ({ colors, onAdd }) => {
   const [selectedColor, setSelectedColor] = useState(colors[0].id);
   const [inputValue, setInputValue] = useState('');
 
+  const onClose = () => {
+    setVisiblePopup(false);
+    setInputValue('');
+    setSelectedColor(colors[0].id);
+  }
+
   const addList = () => {
     if (!inputValue) {
       alert('Введите названия списка!');
       return;
     }
-    onAdd({id: Math.random(), name: inputValue, colorId: selectedColor})
-  }
+    onAdd(
+      {
+        id: Math.random(), 
+        name: inputValue, 
+        color: colors.filter(c => c.id === selectedColor)[0].name
+      }
+    );
+    onClose();
+  };
 
   return (
   <div className="add-list">
      <List 
-     onClick={() => setVisiblePopup(!visiblePopup)}
-     items={[
+      onClick={() => setVisiblePopup(!visiblePopup)}
+      items={[
         {
           className: 'todo__list__add-button',
           icon: <ion-icon name="add-circle-outline"></ion-icon>,
@@ -33,7 +46,7 @@ const AddListButton = ({ colors, onAdd }) => {
       ]}/>
      {visiblePopup && <div className="add-list__popup">
           <i 
-            onClick={() => setVisiblePopup(false)}
+            onClick={onClose}
             className="add-list__popup-close">
             <ion-icon name="close-outline"></ion-icon>
           </i>

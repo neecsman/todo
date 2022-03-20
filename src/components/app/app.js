@@ -17,9 +17,9 @@ function App() {
   );
   
   const onAddList = (obj) => {
-    console.log(obj);
-    
-  }
+    const newList = [...lists, obj]; 
+    setLists(newList)
+  };
 
 
   return (

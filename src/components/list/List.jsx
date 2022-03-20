@@ -14,6 +14,7 @@ const List = ({ items, isRemovable, onClick }) => {
                     <li key={index} className={classNames(item.className, {'active': item.active})}>
                         {item.icon ? item.icon : <Badge color={item.color}/>}
                         <span>{item.name}</span>
+                        
                     </li>
                 )
             }  

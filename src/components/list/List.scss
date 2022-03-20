@@ -1,6 +1,8 @@
 .todo__list {
     margin-bottom: 30px;
     
+  
+
     li {
     display: flex;
     align-items: center;
@@ -16,7 +18,11 @@
             background: rgba(255, 255, 255, 0.5);
             border-radius: 15px
         }
+
+        
     }
+
+    
 
     span {
         margin-left: 15px;
