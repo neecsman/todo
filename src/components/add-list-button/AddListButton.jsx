@@ -7,7 +7,7 @@ import './AddListButton.scss'
 
 
 
-const AddListButton = ({ colors, onAdd }) => {
+const AddListButton = ({ colors, onAdd, onRemove }) => {
   const [visiblePopup, setVisiblePopup] = useState(false);
   const [selectedColor, setSelectedColor] = useState(colors[0].id);
   const [inputValue, setInputValue] = useState('');
@@ -32,6 +32,7 @@ const AddListButton = ({ colors, onAdd }) => {
     );
     onClose();
   };
+  
 
   return (
   <div className="add-list">

@@ -1,24 +1,37 @@
 .todo__list {
+    $self: &;
+
     margin-bottom: 30px;
-    
-  
 
     li {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    margin-bottom: 5px;
-    cursor: pointer;
-        &.active {
-            background: #FFFFFF;
-            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
-            border-radius: 4px;
-        }
-        &:hover {
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 15px
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        &:hover #{$self}-remove-icon {
+            opacity: 0.3;
         }
 
+        #{$self}-remove-icon {
+            opacity: 0;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+            &.active {
+                background: #FFFFFF;
+                box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+                border-radius: 4px;
+            }
+            &:hover {
+                background: rgba(255, 255, 255, 0.5);
+                border-radius: 15px
+            }  
+        span {
+            flex: 1;
+        }
         
     }
 

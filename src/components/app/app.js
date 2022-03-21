@@ -32,6 +32,7 @@ function App() {
             },
           ]}/>
            <List 
+            onRemove={(item) => console.log(item)}
             items={lists}
             isRemovable
           />
@@ -40,7 +41,9 @@ function App() {
           colors={DB.colors}/>
         </div>
         <div className="todo__tusks">
-
+          <div className="tusks">
+            <h2 className='tusks__title'>Фронтенд</h2>
+          </div>
         </div>
 
     </div>
