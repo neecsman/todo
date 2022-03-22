@@ -40,9 +40,10 @@ function App() {
           onAdd={onAddList}
           colors={DB.colors}/>
         </div>
-        <div className="todo__tusks">
-          <div className="tusks">
-            <h2 className='tusks__title'>Фронтенд</h2>
+        <div className="todo__tasks">
+          <div className="tasks">
+            <h2 className='tasks__title'>Фронтенд</h2>
+            <i className='tasks__title-change'><ion-icon name="create-outline"></ion-icon></i>
           </div>
         </div>
 
