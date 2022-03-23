@@ -1,0 +1,57 @@
+.tasks {
+    display: flex;
+    
+    &__title {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 39px;
+        color: #64C4ED;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #F2F2F2;
+        &-change {
+            color: #DFDFDF;
+            margin-top: 5px;
+            margin-left: 10px;
+            &:hover {
+                color: #b9b9b9;
+            }
+            &:active {
+                color: #727171;
+            }
+        }
+    }
+
+    &__items {
+        .checkbox {
+            ion-icon {
+                --ionicon-stroke-width: 60px;
+                color: #FFFFFF;
+            }
+            input {
+                display: none;
+            }
+        }
+        label {
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            left: 255px;
+            top: 147px;
+            border: 2px solid #d1d1d1;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        input:checked + label {
+            background-color: #4DD599;
+            border-color: #4DD599;
+        }
+     }
+
+
+}
+

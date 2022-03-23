@@ -28,31 +28,7 @@
         flex: 1;
     }
 
-    .tasks {
-        display: flex;
-        
-        &__title {
-            font-family: 'Montserrat';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 32px;
-            line-height: 39px;
-            color: #64C4ED;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #F2F2F2;
-            &-change {
-                color: #DFDFDF;
-                margin-top: 5px;
-                margin-left: 10px;
-                &:hover {
-                    color: #b9b9b9;
-                }
-                &:active {
-                    color: #727171;
-                }
-            }
-        }
-    }
+    
 
     
 }

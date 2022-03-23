@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import List from '../list/List';
 import AddListButton from '../add-list-button/AddListButton'
+import Tasks from '../tasks/Tasks';
 
 import DB from '../../assets/db.json'
 
@@ -40,12 +41,7 @@ function App() {
           onAdd={onAddList}
           colors={DB.colors}/>
         </div>
-        <div className="todo__tasks">
-          <div className="tasks">
-            <h2 className='tasks__title'>Фронтенд</h2>
-            <i className='tasks__title-change'><ion-icon name="create-outline"></ion-icon></i>
-          </div>
-        </div>
+        <Tasks/>
 
     </div>
   );
