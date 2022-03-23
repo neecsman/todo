@@ -42,7 +42,6 @@ function App() {
           colors={DB.colors}/>
         </div>
         <Tasks/>
-
     </div>
   );
 }
