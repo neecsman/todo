@@ -27,12 +27,17 @@
         .checkbox {
             ion-icon {
                 --ionicon-stroke-width: 60px;
-                color: #FFFFFF;
+                color: #fcfcfc;
+                &:hover {
+                    color: #B3B3B3;
+                }
             }
             input {
                 display: none;
             }
+
         }
+
         label {
             display: flex;
             align-items:center;
@@ -44,11 +49,24 @@
             border: 2px solid #d1d1d1;
             border-radius: 50%;
             cursor: pointer;
+            &:hover {
+                background-color: #F2F2F2;
+                ion-icon {
+                    color: #B3B3B3;
+                }
+            }
+            
         }
 
         input:checked + label {
             background-color: #4DD599;
             border-color: #4DD599;
+            ion-icon {
+                color: #ffffff;
+                &:hover {
+                    color: #ffffff;
+                }
+            }
         }
      }
 
