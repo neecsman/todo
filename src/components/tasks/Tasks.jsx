@@ -16,6 +16,7 @@ const Tasks = () => {
                     </label>
                     
                 </div>
+                <input value='Какое-то рандомное задание'></input>
             </div>
         
         </div>
