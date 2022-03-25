@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import List from "../list/List";
 import Badge from "../badge/Badge";
@@ -9,8 +9,14 @@ import './AddListButton.scss'
 
 const AddListButton = ({ colors, onAdd }) => {
   const [visiblePopup, setVisiblePopup] = useState(false);
-  const [selectedColor, setSelectedColor] = useState(colors[0].id);
+  const [selectedColor, setSelectedColor] = useState(3);
   const [inputValue, setInputValue] = useState('');
+
+  useEffect(() => {
+    if (Array.isArray(colors)) {
+        setSelectedColor(colors[0].id)
+    }
+  }, [colors]);
 
   const onClose = () => {
     setVisiblePopup(false);

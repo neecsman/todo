@@ -18,7 +18,7 @@ const List = ({ items, isRemovable, onClick, onRemove }) => {
             {
                 items.map((item, index) => 
                     <li key={index} className={classNames(item.className, {'active': item.active})}>
-                        {item.icon ? item.icon : <Badge color={item.color}/>}
+                        {item.icon ? item.icon : <Badge color={item.color.name}/>}
                         <span>{item.name}</span>
                         {isRemovable && <i onClick={() => removeList(item)} className='todo__list-remove-icon'><ion-icon size="small" name="trash-outline"></ion-icon></i>}
                     </li>
