@@ -4,17 +4,19 @@ import List from "../list/List";
 import Badge from "../badge/Badge";
 
 import './AddListButton.scss'
+import axios from "axios";
 
 
 
 const AddListButton = ({ colors, onAdd }) => {
   const [visiblePopup, setVisiblePopup] = useState(false);
   const [selectedColor, setSelectedColor] = useState(3);
+  const [isLoading , setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     if (Array.isArray(colors)) {
-        setSelectedColor(colors[0].id)
+        setSelectedColor(colors[0].id);
     }
   }, [colors]);
 
@@ -29,15 +31,22 @@ const AddListButton = ({ colors, onAdd }) => {
       alert('Введите названия списка!');
       return;
     }
-    onAdd(
-      {
-        id: Math.random(), 
+    setIsLoading(true);
+    axios.post('http://localhost:3001/lists', 
+      { 
         name: inputValue, 
-        color: colors.filter(c => c.id === selectedColor)[0].name
-      }
-    );
-    onClose();
-  };
+        colorId: selectedColor
+      })
+        .then(({ data }) => {
+          const color = colors.filter(c => c.id === selectedColor)[0].name;
+          const listObj = { ...data, color: {name: color}}
+          onAdd(listObj);
+          onClose();
+        })
+        .finally(() => {
+          setIsLoading(false);
+        })
+      };
   
 
   return (
@@ -79,7 +88,7 @@ const AddListButton = ({ colors, onAdd }) => {
           </div>
           <button
             onClick={addList}
-            className="button">Добавить</button>
+            className="button">{isLoading ? 'Добавление...' : 'Добавить'}</button>
       </div>}
   </div> 
   )
