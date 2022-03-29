@@ -4,7 +4,7 @@ import axios from 'axios';
 import NewTask from '../new-task/New-task';
 
 
-const Tasks = ({ list, onEditTitle }) => {
+const Tasks = ({ list, onEditTitle, onAddTask }) => {
 
     const editTitle = () => {
         const newTitle = prompt('Введите название списка', list.name);
@@ -41,7 +41,7 @@ const Tasks = ({ list, onEditTitle }) => {
                     )) 
                 }
 
-            <NewTask/>
+            <NewTask list={list} onAddTask={onAddTask} />
             </div> 
         </div>
     )

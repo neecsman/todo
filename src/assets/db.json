@@ -45,6 +45,18 @@
       "listId": 2,
       "text": "Redux (redux-observable, redux-saga)",
       "completed": false
+    },
+    {
+      "listId": 2,
+      "text": "51234",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "listId": 2,
+      "text": "124",
+      "completed": false,
+      "id": 6
     }
   ],
   "colors": [
