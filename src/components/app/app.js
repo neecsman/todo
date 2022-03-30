@@ -55,6 +55,7 @@ function App() {
         <div className="todo__sidebar">
           <List items={[
             {
+              active: true,
               icon: <ion-icon name="list-outline"></ion-icon>,
               name: "Все задачи"
             },

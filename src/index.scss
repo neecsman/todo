@@ -27,6 +27,10 @@ ion-icon {
         background-color: darken(#4DD599, 12%);
     }
 
+    &:disabled {
+        background: #d8d8d8;
+    }
+
     &__gray {
         color: #444444;
         background-color:#F4F6F8;

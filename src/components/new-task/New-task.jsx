@@ -7,6 +7,7 @@ const NewTask = ({ list, onAddTask }) => {
     
     const [visibleForm, setVisibleForm] = useState(false);
     const [inputValue, setInputValue] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const toggleFormVisible = () => {
         setVisibleForm(!visibleForm);
@@ -19,12 +20,18 @@ const NewTask = ({ list, onAddTask }) => {
             "text": inputValue,
             "completed": false
         };
-
+        setIsLoading(true);
         axios.post('http://localhost:3001/tasks', obj)
             .then(({data}) => {
                 console.log(data);
                 onAddTask(list.id, obj);
                 toggleFormVisible();
+            })
+            .catch(() => {
+                alert('Ошибка при добавлении списка!')
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
         
     }
@@ -47,7 +54,9 @@ const NewTask = ({ list, onAddTask }) => {
                         type="text" 
                         placeholder="Текст задачи"
                         onChange={e => setInputValue(e.target.value)}/>
-                    <button onClick={addTask} className="button">Добавить задачу</button>
+                    <button disabled={isLoading} onClick={addTask} className="button">
+                        {isLoading ? 'Добавление...' : 'Добавить задачу'}
+                    </button>
                     <button onClick={toggleFormVisible} className="button button__gray">Отмена</button>
                 </div>
                 )}
