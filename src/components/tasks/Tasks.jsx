@@ -22,7 +22,7 @@ const Tasks = ({ list, onEditTitle, onAddTask, withoutEmpty}) => {
     return (
         <>
             <div className="tasks">
-                <h2 className='tasks__title'>{list.name}</h2>
+                <h2 style={{ color: list.color.hex}} className='tasks__title'>{list.name}</h2>
                 <i onClick={editTitle} className='tasks__title-change'><ion-icon name="create-outline"></ion-icon></i>
             </div>
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 
 import List from '../list/List';
 import AddListButton from '../add-list-button/AddListButton'
@@ -15,7 +15,8 @@ function App() {
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
   const [activeItem, setActiveItem] = useState(null);
-  
+  let navigate = useNavigate();
+  let location = useLocation();
 
   useEffect(() => {
     axios.get('http://localhost:3001/lists?_expand=color&_embed=tasks')
@@ -53,19 +54,29 @@ function App() {
     setLists(newList)
   }
 
+  useEffect(() => {
+    const listId = location.pathname.split('lists/')[1];
+    if(lists) {
+      const list = lists.find(list => list.id === Number(listId));
+      setActiveItem(list);
+    }
+  }, [lists, location.pathname]);
+
   return (
     <div className="todo">
         <div className="todo__sidebar">
-          <List items={[
-            {
-              active: true,
-              icon: <ion-icon name="list-outline"></ion-icon>,
-              name: "Все задачи"
-            },
+          <List
+          onClickItem={list => navigate(`/`)}
+          items={[
+          {
+            active: true,
+            icon: <ion-icon name="list-outline"></ion-icon>,
+            name: "Все задачи"
+          },
           ]}/>
           {lists ? (
              <List 
-                onClickItem={item => setActiveItem(item)}
+                onClickItem={list => navigate(`lists/${list.id}`)}
                 onRemove={id => {
                   const newLists = lists.filter(item => item.id !== id)
                   setLists(newLists);
@@ -86,7 +97,8 @@ function App() {
           <Route exact path="/" element={
             (
               lists && lists.map(list => (
-                  <Tasks 
+                  <Tasks
+                  key={list.id} 
                     list={list} 
                     onAddTask={onAddTask} 
                     onEditTitle={onEditListTitle}
