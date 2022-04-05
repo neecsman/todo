@@ -14,6 +14,16 @@
       "id": 4,
       "name": "Книги",
       "colorId": 2
+    },
+    {
+      "name": "Игры",
+      "colorId": 6,
+      "id": 6
+    },
+    {
+      "name": "План",
+      "colorId": 8,
+      "id": 7
     }
   ],
   "tasks": [
@@ -40,6 +50,72 @@
       "listId": 2,
       "text": "Redux (redux-observable, redux-saga)",
       "completed": false
+    },
+    {
+      "listId": 1,
+      "text": "Задача",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "listId": 1,
+      "text": "Задача",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "listId": 1,
+      "text": "Задача",
+      "completed": false,
+      "id": 7
+    },
+    {
+      "listId": 4,
+      "text": "Задача",
+      "completed": false,
+      "id": 8
+    },
+    {
+      "listId": 4,
+      "text": "Задача",
+      "completed": false,
+      "id": 9
+    },
+    {
+      "listId": 4,
+      "text": "Задача",
+      "completed": false,
+      "id": 10
+    },
+    {
+      "listId": 6,
+      "text": "ТЛОУ",
+      "completed": false,
+      "id": 11
+    },
+    {
+      "listId": 6,
+      "text": "Элден",
+      "completed": false,
+      "id": 12
+    },
+    {
+      "listId": 6,
+      "text": "ЧекПук",
+      "completed": false,
+      "id": 13
+    },
+    {
+      "listId": 7,
+      "text": "Разобрать роутинг",
+      "completed": false,
+      "id": 14
+    },
+    {
+      "listId": 7,
+      "text": "Разобрать тайпскрипт",
+      "completed": false,
+      "id": 15
     }
   ],
   "colors": [
