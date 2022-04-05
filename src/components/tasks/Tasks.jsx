@@ -4,7 +4,7 @@ import axios from 'axios';
 import NewTask from '../new-task/New-task';
 
 
-const Tasks = ({ list, onEditTitle, onAddTask }) => {
+const Tasks = ({ list, onEditTitle, onAddTask, withoutEmpty}) => {
 
     const editTitle = () => {
         const newTitle = prompt('Введите название списка', list.name);
@@ -20,14 +20,14 @@ const Tasks = ({ list, onEditTitle, onAddTask }) => {
 
 
     return (
-        <div className="todo__tasks">
+        <>
             <div className="tasks">
                 <h2 className='tasks__title'>{list.name}</h2>
                 <i onClick={editTitle} className='tasks__title-change'><ion-icon name="create-outline"></ion-icon></i>
             </div>
 
             <div className="tasks__items">
-                {!list.tasks.length && <h2>Задачи отсутствуют</h2>}
+                {!withoutEmpty && !list.tasks.length && <h2>Задачи отсутствуют</h2>}
                 {list.tasks.map(task => (
                        <div key={task.id} className="tasks__items-row">
                             <div className="checkbox">
@@ -41,11 +41,10 @@ const Tasks = ({ list, onEditTitle, onAddTask }) => {
                     )) 
                 }
 
-            <NewTask list={list} onAddTask={onAddTask} />
+                <NewTask list={list} onAddTask={onAddTask} />
             </div> 
-        </div>
-    )
-    
+        </>
+    );   
 }
 
 export default Tasks;

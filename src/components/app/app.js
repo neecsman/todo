@@ -1,11 +1,14 @@
-import axios from 'axios';
-
 import { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+
 import List from '../list/List';
 import AddListButton from '../add-list-button/AddListButton'
 import Tasks from '../tasks/Tasks';
 
 import './app.scss';
+
+import axios from 'axios';
+
 
 
 function App() {
@@ -73,15 +76,42 @@ function App() {
               />
           ) : (
             'Загрузка...'
-          )}
-          
-        <AddListButton 
-          onAdd={onAddList}
-          colors={colors}/>
+          )}         
+        <AddListButton  onAdd={onAddList}colors= {colors}/>
         </div>
-        {lists && activeItem && <Tasks list={activeItem} onAddTask={onAddTask} onEditTitle={onEditListTitle}/>}
+        <div className="todo__tasks">
+
+
+        <Routes>
+          <Route exact path="/" element={
+            (
+              lists && lists.map(list => (
+                  <Tasks 
+                    list={list} 
+                    onAddTask={onAddTask} 
+                    onEditTitle={onEditListTitle}
+                    withoutEmpty/>
+                ))
+            )
+          }/>
+
+          <Route path="/lists/:id" element={
+              (lists && activeItem && 
+                <Tasks 
+                  list={activeItem} 
+                  onAddTask={onAddTask} 
+                  onEditTitle={onEditListTitle}
+                />
+              )
+            }
+          />
+        </Routes>
+
+          {/* {lists && activeItem && <Tasks list={activeItem} onAddTask={onAddTask} onEditTitle={onEditListTitle}/>} */}
+        </div>
     </div>
   );
 }
 
 export default App;
+
