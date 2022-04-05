@@ -16,11 +16,6 @@
       "colorId": 2
     },
     {
-<<<<<<< HEAD
-      "name": "Новая задача",
-      "colorId": 5,
-      "id": 5
-=======
       "name": "Игры",
       "colorId": 6,
       "id": 6
@@ -29,7 +24,6 @@
       "name": "План",
       "colorId": 8,
       "id": 7
->>>>>>> db37e77cab802b44caaf40a5c55f8b53827b18f1
     }
   ],
   "tasks": [
@@ -58,33 +52,18 @@
       "completed": false
     },
     {
-<<<<<<< HEAD
-      "listId": 2,
-      "text": "Новая задача",
-=======
       "listId": 1,
       "text": "Задача",
->>>>>>> db37e77cab802b44caaf40a5c55f8b53827b18f1
       "completed": false,
       "id": 5
     },
     {
       "listId": 1,
-<<<<<<< HEAD
-      "text": "Добавил новую задачу",
-=======
       "text": "Задача",
->>>>>>> db37e77cab802b44caaf40a5c55f8b53827b18f1
       "completed": false,
       "id": 6
     },
     {
-<<<<<<< HEAD
-      "listId": 2,
-      "text": "Привет",
-      "completed": false,
-      "id": 7
-=======
       "listId": 1,
       "text": "Задача",
       "completed": false,
@@ -137,7 +116,6 @@
       "text": "Разобрать тайпскрипт",
       "completed": false,
       "id": 15
->>>>>>> db37e77cab802b44caaf40a5c55f8b53827b18f1
     }
   ],
   "colors": [
