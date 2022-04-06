@@ -88,17 +88,17 @@ function App() {
           ) : (
             'Загрузка...'
           )}         
-        <AddListButton  onAdd={onAddList}colors= {colors}/>
+        <AddListButton  onAdd={onAddList} colors= {colors}/>
         </div>
         <div className="todo__tasks">
 
 
         <Routes>
-          <Route exact path="/" element={
+          <Route path="/" element={
             (
               lists && lists.map(list => (
                   <Tasks
-                  key={list.id} 
+                    key={list.id} 
                     list={list} 
                     onAddTask={onAddTask} 
                     onEditTitle={onEditListTitle}
