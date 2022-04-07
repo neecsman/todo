@@ -27,8 +27,8 @@ const Tasks = ({ list, onEditTitle, onAddTask, withoutEmpty}) => {
             </div>
 
             <div className="tasks__items">
-                {!withoutEmpty && !list.tasks.length && <h2>Задачи отсутствуют</h2>}
-                {list.tasks.map(task => (
+                {!withoutEmpty && list.tasks && !list.tasks.length && <h2>Задачи отсутствуют</h2>}
+                {list.tasks && list.tasks.map(task => (
                        <div key={task.id} className="tasks__items-row">
                             <div className="checkbox">
                                 <input id={`task-${task.id}`} type="checkbox" />
@@ -40,7 +40,6 @@ const Tasks = ({ list, onEditTitle, onAddTask, withoutEmpty}) => {
                        </div>
                     )) 
                 }
-
                 <NewTask list={list} onAddTask={onAddTask} />
             </div> 
         </>
