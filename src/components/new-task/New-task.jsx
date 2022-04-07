@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import './New-task.scss'
 
-const NewTask = ({ list, onAddTask }) => {
+const NewTask = ({ list, onAddTask}) => {
     
     const [visibleForm, setVisibleForm] = useState(false);
     const [inputValue, setInputValue] = useState('');
@@ -15,6 +15,7 @@ const NewTask = ({ list, onAddTask }) => {
     };
 
     const addTask = () => {
+
         const obj = {
             "listId": list.id,
             "text": inputValue,
@@ -23,9 +24,10 @@ const NewTask = ({ list, onAddTask }) => {
         setIsLoading(true);
         axios.post('http://localhost:3001/tasks', obj)
             .then(({data}) => {
-                console.log(data)
-                onAddTask(list.id, obj);
+                obj.id = data.id;
+                onAddTask(list.id, obj)
                 toggleFormVisible();
+
             })
             .catch(() => {
                 alert('Ошибка при добавлении списка!')

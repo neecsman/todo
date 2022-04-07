@@ -21,19 +21,19 @@ function App() {
   useEffect(() => {
     axios.get('http://localhost:3001/lists?_expand=color&_embed=tasks')
       .then(({ data }) => {
-        setLists(data)
+        setLists(data);
     });
     axios.get('http://localhost:3001/colors')
       .then(({ data }) => {
-        setColors(data)
+        setColors(data);
     });
   }, []);
   
   const onAddList = (obj) => {
     const newList = [...lists, obj]; 
-    setLists(newList)
+    setLists(newList);
   };
-
+  
   const onAddTask = (listId, taskObj) => {
     const newList = lists.map(item => {
       if(item.id === listId) {
@@ -51,8 +51,8 @@ function App() {
       }
       return item;
     });
-    setLists(newList)
-  }
+    setLists(newList);
+  } 
 
   useEffect(() => {
     const listId = location.pathname.split('lists/')[1];
