@@ -44,6 +44,16 @@ function App() {
     setLists(newList);
   };
 
+  const onRemoveTask = (taskId) => {
+    if( window.confirm('Вы действительно хотите удалить задачу?')) {
+        axios
+            .delete('http://localhost:3001/tasks/' + taskId)
+            .catch(() => {
+                alert('Не удалось задачу...')
+            });
+    }
+}
+
   const onEditListTitle = (id, title) => {
     const newList = lists.map(item => {
       if (item.id === id) {

@@ -42,13 +42,49 @@
             display: flex;
             align-items: center;
             margin-top: 20px;
+
+            &:hover &-actions {
+                opacity: 1;
+              }
+            
+            &-actions {
+                display: flex;
+                opacity: 0;
+                transition: opacity 0.15s ease-in-out;
+
+                div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 32px;
+                    height: 32px;
+                    background-color: rgb(244, 243, 243);
+                    border-radius: 6px;
+                    margin-left: 5px;
+                    cursor: pointer;
+
+                    ion-icon {
+                        opacity: 0.5;
+                    }
+
+                    &:hover {
+                        background-color: rgb(220, 220, 220);
+                        ion-icon {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+            }
+
             input {
                 margin-left: 20px;
                 border: 0;
                 font-size: 24px;
-                width: 100%;
-                
+                width: 100%;  
             }
+
+            
             .checkbox {
                 ion-icon {
                     --ionicon-stroke-width: 60px;
@@ -93,6 +129,7 @@
                     }
                 }
             }
+            
         }
     }
 

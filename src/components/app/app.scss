@@ -6,8 +6,8 @@
     transform: translate(-50%, -50%);
     border-radius: 15px;
     box-shadow: 3px 2px 30px rgb(199, 199, 199);
-    width: 1320px;
-    height: 900px;
+    width: calc(100vw - 100px);
+    height: calc(100vh - 100px);
     background-color: rgb(255, 255, 255);
     font-size: 18px;
     

@@ -1,58 +1,17 @@
 {
   "lists": [
     {
-      "name": "Кино",
-      "colorId": 3,
+      "name": "Список дел",
+      "colorId": 4,
       "id": 1
-    },
-    {
-      "name": "Игры",
-      "colorId": 1,
-      "id": 2
     }
   ],
   "tasks": [
     {
       "listId": 1,
-      "text": "Домино",
+      "text": "Задача № 1",
       "completed": false,
       "id": 1
-    },
-    {
-      "listId": 1,
-      "text": "Шуры муры",
-      "completed": false,
-      "id": 2
-    },
-    {
-      "listId": 1,
-      "text": "Матрица",
-      "completed": false,
-      "id": 3
-    },
-    {
-      "listId": 2,
-      "text": "Киберпанк",
-      "completed": false,
-      "id": 4
-    },
-    {
-      "listId": 2,
-      "text": "Ассасин",
-      "completed": false,
-      "id": 5
-    },
-    {
-      "listId": 2,
-      "text": "Анчартед",
-      "completed": false,
-      "id": 6
-    },
-    {
-      "listId": 2,
-      "text": "Варзона",
-      "completed": false,
-      "id": 7
     }
   ],
   "colors": [

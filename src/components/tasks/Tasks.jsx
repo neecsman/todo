@@ -4,7 +4,7 @@ import axios from 'axios';
 import NewTask from '../new-task/New-task';
 
 
-const Tasks = ({ list, onEditTitle, onAddTask, withoutEmpty}) => {
+const Tasks = ({ list, onEditTitle, onAddTask, withoutEmpty, onRemoveTask, onEditTask}) => {
 
     const editTitle = () => {
         const newTitle = prompt('Введите название списка', list.name);
@@ -37,6 +37,10 @@ const Tasks = ({ list, onEditTitle, onAddTask, withoutEmpty}) => {
                                 </label>    
                             </div>
                             <input readOnly value={task.text}></input>
+                            <div className='tasks__items-row-actions'>
+                               <div onClick={onEditTask}><ion-icon size="small" name="pencil-outline"></ion-icon></div>
+                                <div onClick={onRemoveTask}><ion-icon name="close-outline"></ion-icon></div>
+                            </div>
                        </div>
                     )) 
                 }
