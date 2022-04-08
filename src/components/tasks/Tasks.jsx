@@ -4,18 +4,20 @@ import axios from 'axios';
 import NewTask from '../new-task/New-task';
 
 
-const Tasks = ({ list, onEditTitle, onAddTask, withoutEmpty, onRemoveTask, onEditTask}) => {
-
+const Tasks = ({ list, onEditTitle, onAddTask, withoutEmpty, onRemoveTask, onEditTask, onCompleteTask}) => {
     const editTitle = () => {
         const newTitle = prompt('Введите название списка', list.name);
         if (newTitle) {
             onEditTitle(list.id, newTitle)
-            axios.patch('http://localhost:3001/lists/' + list.id, {
-                name: newTitle
-            }).catch(() => {
-                alert('Не удалось обновить название списка...')
-            });
+            axios.patch('http://localhost:3001/lists/' + list.id, {name: newTitle})
+                .catch(() => {
+                    alert('Не удалось обновить название списка...')
+                });
         }
+    }
+
+    const onChangeCheckbox = (taskId, target) => {
+        onCompleteTask(list.id, taskId, target)
     }
 
 
@@ -31,20 +33,20 @@ const Tasks = ({ list, onEditTitle, onAddTask, withoutEmpty, onRemoveTask, onEdi
                 {list.tasks && list.tasks.map(task => (
                        <div key={task.id} className="tasks__items-row">
                             <div className="checkbox">
-                                <input id={`task-${task.id}`} type="checkbox" />
+                                <input onChange={(e) => onChangeCheckbox(task.id, e.target.checked)} id={`task-${task.id}`} type="checkbox" checked={task.completed}/>
                                 <label htmlFor={`task-${task.id}`}>
                                     <ion-icon size="small" name="checkmark-outline"></ion-icon>
                                 </label>    
                             </div>
-                            <input readOnly value={task.text}></input>
+                            <p>{task.text}</p>
                             <div className='tasks__items-row-actions'>
-                               <div onClick={onEditTask}><ion-icon size="small" name="pencil-outline"></ion-icon></div>
-                                <div onClick={onRemoveTask}><ion-icon name="close-outline"></ion-icon></div>
+                               <div onClick={() => onEditTask(list.id, {"id": task.id, "text": task.text})}><ion-icon size="small" name="pencil-outline"></ion-icon></div>
+                                <div onClick={() => onRemoveTask(list.id, task.id)}><ion-icon name="close-outline"></ion-icon></div>
                             </div>
                        </div>
                     )) 
                 }
-                <NewTask list={list} onAddTask={onAddTask} />
+                <NewTask key={list.id} list={list} onAddTask={onAddTask} />
             </div> 
         </>
     );   

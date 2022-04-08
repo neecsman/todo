@@ -44,15 +44,65 @@ function App() {
     setLists(newList);
   };
 
-  const onRemoveTask = (taskId) => {
+  const onRemoveTask = (listId, taskId) => {
     if( window.confirm('Вы действительно хотите удалить задачу?')) {
-        axios
-            .delete('http://localhost:3001/tasks/' + taskId)
-            .catch(() => {
-                alert('Не удалось задачу...')
-            });
+      const newList = lists.map(item => {
+        if (item.id === listId) {
+          item.tasks = item.tasks.filter(task => task.id !== taskId);
+        }
+        return item;
+      });
+      setLists(newList);
+      axios.delete('http://localhost:3001/tasks/' + taskId)
+          .catch(() => {
+              alert('Не удалось задачу...')
+          });
     }
-}
+  }
+
+  const onEditTask = (listId, taskObj) => {
+    const newTaskText = window.prompt('Отредактируйте задачу!', taskObj.text);
+
+    if(!newTaskText) {
+      return;
+    }
+
+    const newLists = lists.map(item => {
+      if (item.id === listId) {
+        item.tasks = item.tasks.map(task => {
+          if(task.id === taskObj.id) {
+            task.text = newTaskText;
+          }
+          return task;
+        });
+      }
+      return item;
+    });
+    setLists(newLists);
+    axios.patch('http://localhost:3001/tasks/' + taskObj.id, {text: newTaskText})
+    .catch(() => {
+        alert('Не удалось отредактировать задачу...');
+    });
+  }
+
+  const onCompleteTask = (listId, taskId, completed) => {
+    const newLists = lists.map(item => {
+      if (item.id === listId) {
+        item.tasks = item.tasks.map(task => {
+          if(task.id === taskId) {
+            task.completed = completed;
+          }
+          return task;
+        });
+      }
+      return item;
+    });
+    setLists(newLists);
+    axios.patch('http://localhost:3001/tasks/' + taskId, {completed})
+    .catch(() => {
+        alert('Не удалось выполнить задачу...');
+    });
+  }
 
   const onEditListTitle = (id, title) => {
     const newList = lists.map(item => {
@@ -79,7 +129,7 @@ function App() {
           onClickItem={list => navigate(`/`)}
           items={[
           {
-            active: true,
+            active: location.pathname === '/',
             icon: <ion-icon name="list-outline"></ion-icon>,
             name: "Все задачи"
           },
@@ -112,6 +162,9 @@ function App() {
                     list={list} 
                     onAddTask={onAddTask} 
                     onEditTitle={onEditListTitle}
+                    onRemoveTask={onRemoveTask}
+                    onEditTask={onEditTask}
+                    onCompleteTask={onCompleteTask}
                     withoutEmpty/>
                 ))
             )
@@ -123,6 +176,9 @@ function App() {
                   list={activeItem} 
                   onAddTask={onAddTask} 
                   onEditTitle={onEditListTitle}
+                  onRemoveTask={onRemoveTask}
+                  onEditTask={onEditTask}
+                  onCompleteTask={onCompleteTask}
                 />
               )
             }
