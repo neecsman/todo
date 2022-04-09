@@ -47,6 +47,12 @@
     },
     {
       "listId": 1,
+      "text": "Задача № 4",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "listId": 1,
       "text": "Задача № 5",
       "completed": false,
       "id": 5
@@ -170,12 +176,6 @@
       "text": "Задача № 5",
       "completed": false,
       "id": 25
-    },
-    {
-      "listId": 1,
-      "text": "egedg",
-      "completed": false,
-      "id": 26
     }
   ],
   "colors": [
