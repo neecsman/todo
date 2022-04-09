@@ -1,1 +1,7 @@
-ВЕДЕТСЯ РАБОТА ПО СОЗДАНИЮ TODO ПРИЛОЖЕНИЯ...
+Приложение со списком задач ToDo.
+
+Stack:
+- ReactJS(useState, useEffect);
+- React Router v6;
+- json-server;
+- classNames
