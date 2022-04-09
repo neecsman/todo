@@ -1,7 +1,7 @@
 {
   "lists": [
     {
-      "name": "Gfhd",
+      "name": "Список 1",
       "colorId": 3,
       "id": 1
     },
@@ -35,8 +35,8 @@
     },
     {
       "listId": 1,
-      "text": "bfdh",
-      "completed": true,
+      "text": "Задача № 2",
+      "completed": false,
       "id": 2
     },
     {
@@ -156,7 +156,7 @@
     {
       "listId": 5,
       "text": "Задача № 3",
-      "completed": true,
+      "completed": false,
       "id": 23
     },
     {
