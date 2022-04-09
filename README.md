@@ -5,3 +5,5 @@ Stack:
 - React Router v6;
 - json-server;
 - classNames
+
+[Посмотреть приложение](https://neecsman.github.io/todo/)
